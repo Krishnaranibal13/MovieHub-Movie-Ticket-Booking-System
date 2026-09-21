@@ -20,4 +20,4 @@ env/
 .idea/
 
 # Logs
-*.log
+*.log.env

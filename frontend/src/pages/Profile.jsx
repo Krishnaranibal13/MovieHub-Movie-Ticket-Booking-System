@@ -77,7 +77,7 @@ function Profile() {
 
                 const response =
                     await fetch(
-                        `http://127.0.0.1:8000/bookings/user/${user.id}`
+                        `/api/bookings/user/${user.id}`
                     );
 
 
@@ -720,7 +720,7 @@ function Profile() {
                 const response =
                     await fetch(
 
-                        `http://127.0.0.1:8000/bookings/cancel/${encodeURIComponent(
+                        `/api/bookings/cancel/${encodeURIComponent(
                             bookingId
                         )}`,
 

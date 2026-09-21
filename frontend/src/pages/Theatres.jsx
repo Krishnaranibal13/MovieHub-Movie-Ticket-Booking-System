@@ -593,7 +593,7 @@ function Theatres() {
 
                 const theatreResponse =
                     await fetch(
-                        "http://127.0.0.1:8000/theatres/"
+                        "/api/theatres/"
                     );
 
 
@@ -637,7 +637,7 @@ function Theatres() {
 
                     const showResponse =
                         await fetch(
-                            `http://127.0.0.1:8000/show-timings/movie/${movie.id}`
+                            `/api/show-timings/movie/${movie.id}`
                         );
 
 

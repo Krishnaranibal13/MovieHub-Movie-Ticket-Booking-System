@@ -87,7 +87,7 @@ function Location() {
 
                 const theatreResponse =
                     await fetch(
-                        "http://127.0.0.1:8000/theatres/"
+                        "/api/theatres/"
                     );
 
 
@@ -116,7 +116,7 @@ function Location() {
 
                 const showResponse =
                     await fetch(
-                        `http://127.0.0.1:8000/show-timings/movie/${movie.id}`
+                        `/api/show-timings/movie/${movie.id}`
                     );
 
 

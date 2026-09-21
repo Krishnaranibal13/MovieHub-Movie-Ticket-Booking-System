@@ -8,10 +8,22 @@ from routes import locations
 from routes import theatres
 from routes import show_timings
 from routes import movie_theatres
+from routes import show_timings
+from routes import movie_theatres
+
+from database import Base, engine
+
+from models.user import User
+from models.booking import Booking
+from models.movie import Movie
+from models.location import Location
+from models.theatre import Theatre
+from models.show_timing import ShowTiming
+from models.movie_theatre import MovieTheatre
 
 
 app = FastAPI()
-
+Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
