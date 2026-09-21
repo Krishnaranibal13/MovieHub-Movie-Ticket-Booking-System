@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         COMPOSE_PROJECT_NAME = "moviehub"
+        ENV_FILE = "/home/ubuntu/MovieHub-Movie-Ticket-Booking-System/.env"
     }
 
     stages {
@@ -25,7 +26,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying MovieHub application...'
-                sh 'docker compose up -d'
+
+                sh '''
+                    if [ ! -f "$ENV_FILE" ]; then
+                        echo "ERROR: .env file not found at $ENV_FILE"
+                        exit 1
+                    fi
+
+                    docker compose --env-file "$ENV_FILE" up -d
+                '''
             }
         }
 
@@ -39,9 +48,9 @@ pipeline {
         stage('Application Health Check') {
             steps {
                 echo 'Checking MovieHub application...'
+
                 sh '''
                     sleep 10
-
                     curl -f http://localhost/ || exit 1
 
                     echo "MovieHub application is running successfully."
